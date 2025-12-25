@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NBA Stats Explorer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="dark-mode">
+
+<header>
+  <h1>🏀 NBA Stats Explorer</h1>
+  <div class="search-container" style="display:flex;align-items:center;gap:10px;">
+      <input type="text" id="search" placeholder="Search team or player...">
+      <button id="search-btn">Search</button>
+      <label for="sort-teams" style="font-size:0.95rem;margin-left:10px;">Sort:</label>
+      <select id="sort-teams">
+        <option value="default">Default</option>
+        <option value="name-asc">Name A-Z</option>
+        <option value="name-desc">Name Z-A</option>
+      </select>
+  </div>
+  <button id="theme-toggle" class="theme-btn">Light Mode</button>
+</header>
+
+<div id="error-container" class="error-message hidden"></div>
+<div id="loading-indicator" class="loading hidden">Loading...</div>
+
+<div id="favorites-bar" style="text-align:center;margin:12px 0;"></div>
+
+<main>
+  <section id="player-results"></section>
+  <section id="teams">
+  </section>
+  <div style="text-align:center;margin:16px 0;">
+    <button id="load-more-teams" style="display:none;">Load more teams</button>
+  </div>
+  <section id="matches">
+    <h2>Latest Match Results</h2>
+    <div id="match-list"></div>
+  </section>
+  <section id="details"></section>
+</main>
+
+<footer>
+    <p>Powered by <a href="https://www.thesportsdb.com/" target="_blank">TheSportsDB</a></p>
+    <p>&copy; 2025 NBA Stats Explorer</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
