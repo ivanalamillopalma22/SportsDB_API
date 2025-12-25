@@ -20,7 +20,7 @@ A web app that fetches and displays NBA data for teams, players, and games.
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/nba-api-project.git
+   git clone https://github.com/ivanalamillopalma22/SportsDB_API.git
    ```
 2. **Navigate to the NBA_Api folder**
    ```sh
@@ -76,3 +76,4 @@ Created by Ivan, December 2025.
   ]
 }
 ```
+
