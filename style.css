@@ -1,0 +1,455 @@
+body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* LIGHT MODE */
+body:not(.dark-mode) {
+    background: #f4f4f4;
+    color: #333;
+}
+
+body:not(.dark-mode) header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+body:not(.dark-mode) .team-card,
+body:not(.dark-mode) .match-card,
+body:not(.dark-mode) .player-card,
+body:not(.dark-mode) .team-matches-list {
+    background: #fff;
+    border-color: #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body:not(.dark-mode) .team-card:hover {
+    background: #f9f9f9;
+}
+
+body:not(.dark-mode) .team-card p,
+body:not(.dark-mode) .match-date,
+body:not(.dark-mode) .stat-box .label {
+    color: #666;
+}
+
+body:not(.dark-mode) .player-card h4 {
+    color: #333;
+}
+
+body:not(.dark-mode) .player-card img {
+    background: #eee;
+}
+
+body:not(.dark-mode) .player-stats {
+    background: #f0f0f0;
+}
+
+body:not(.dark-mode) .stat-box .value {
+    color: #333;
+}
+
+body:not(.dark-mode) #matches {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+body:not(.dark-mode) #details {
+    background: #fff;
+    color: #333;
+}
+
+body:not(.dark-mode) .match-row {
+    border-bottom: 1px solid #eee;
+}
+
+/* HEADER & SEARCH */
+header {
+  padding: 1rem;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #333;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  width: 250px;
+  background: #222;
+  color: #fff;
+}
+
+body:not(.dark-mode) input {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+button#search-btn {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button#search-btn:hover {
+    background: #e68900;
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+body:not(.dark-mode) .theme-btn {
+    border-color: #ccc;
+}
+
+/* ERROR & LOADING */
+.error-message {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff5252;
+    color: #ff5252;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+body:not(.dark-mode) footer {
+    border-top: 1px solid #ddd;
+}
+
+footer a {
+    color: #ff9800;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+/* TEAMS GRID */
+#teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.team-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  border: 1px solid #333;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  background: #252525;
+  border-color: #555;
+}
+
+.team-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.team-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.team-card p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* PLAYER RESULTS */
+#player-results {
+    padding: 1rem;
+}
+
+#player-results h3 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+/* MATCH RESULTS */
+#matches {
+    padding: 1rem;
+    background: #111;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#matches h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+#match-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.match-card {
+    background: #222;
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 250px;
+    border: 1px solid #333;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.match-score {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ff9800; /* NBA Orange-ish */
+    font-weight: bold;
+}
+
+.match-date {
+    text-align: center;
+    color: #777;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* TEAM DETAILS */
+#details {
+  padding: 2rem;
+  background: #151515;
+  min-height: 100vh;
+  display: none; /* Hidden by default */
+}
+
+.close-btn {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.team-header {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-logo-large {
+    width: 150px;
+}
+
+.player-detail-large {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.player-card {
+    background: #222;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.player-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Or contain depending on preference */
+    object-position: top;
+    border-radius: 4px;
+    background: #333;
+}
+
+.player-card h4 {
+    margin: 0.5rem 0 0.2rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.player-card .position {
+    color: #ff9800;
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: bold;
+}
+
+.player-stats {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    background: #1a1a1a;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.stat-box .label {
+    font-size: 0.7rem;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.stat-box .value {
+    font-size: 0.85rem;
+    color: #ddd;
+    font-weight: bold;
+}
+
+/* Team Matches in Details */
+.team-matches-list {
+    background: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.match-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    border-bottom: 1px solid #333;
+    align-items: center;
+}
+
+.match-row:last-child {
+    border-bottom: none;
+}
+
+.match-row .date {
+    color: #888;
+    font-size: 0.9rem;
+    width: 100px;
+}
+
+.match-row .vs {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.match-row .vs-text {
+    color: #555;
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+}
+
+.match-row .score {
+    font-weight: bold;
+    color: #ff9800;
+    width: 80px;
+    text-align: right;
+}
+
+/* Favorites Bar */
+#favorites-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.favorite-team-btn {
+  background: #222;
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.favorite-team-btn:hover {
+  background: #ffd700;
+  color: #222;
+}
+.team-fav-star {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+}
+.team-fav-star.favorited {
+  color: #ffd700;
+}
